@@ -1,0 +1,114 @@
+// ==UserScript==
+// @name        New script m-team.cc
+// @namespace   Violentmonkey Scripts
+// @match       https://xp.m-team.cc/browse/*
+// @grant       none
+// @version     1.0
+// @author      fls233
+// @description 3/23/2024, 4:18:24 PM
+// ==/UserScript==
+
+// 代码来源：https://xp.m-team.cc/forum/t/62798
+
+'use strict';
+
+// Function to generate a random ID
+function generateRandomId() {
+    return 'Preview_image_' + Math.random().toString(36).substr(2, 9);
+}
+
+// Function to create and position the preview image
+function createPreviewImage(originalImgSrc, e) {
+    const previewImg = document.createElement('img');
+    previewImg.src = originalImgSrc;
+    previewImg.classList.add('custom-img-preview');
+    previewImg.id = generateRandomId();
+
+    // Set initial position
+    updatePreviewPosition(previewImg, e.pageX, e.pageY);
+
+    document.body.appendChild(previewImg);
+    return previewImg;
+}
+
+// Function to update position of the preview image
+function updatePreviewPosition(previewImg, mouseX, mouseY) {
+    const offset = 20; // Adjust as needed
+    previewImg.style.left = mouseX + offset + 'px';
+
+    const height = window.innerHeight;
+    let picHeight = previewImg.naturalHeight;
+    if (picHeight > height * 0.8) {
+        picHeight = height * 0.8;
+        previewImg.height = picHeight;
+    }
+    const margin = 20;
+    if (picHeight + mouseY + margin > height) {
+        previewImg.style.top = height - picHeight - margin + 'px';
+    } else {
+        previewImg.style.top = mouseY + 'px';
+    }
+}
+
+function addPreviewForContain(imgContainer) {
+    const img = imgContainer.childNodes[0];
+    imgContainer.addEventListener('mouseenter', function(e) {
+        const previewImg = createPreviewImage(img.src, e);
+        img.dataset.previewId = previewImg.id;
+    });
+    imgContainer.addEventListener('mousemove', function(e) {
+        const previewImgId = img.dataset.previewId;
+        if (previewImgId) {
+            const previewImg = document.getElementById(previewImgId);
+            updatePreviewPosition(previewImg, e.pageX, e.pageY);
+        }
+    });
+
+    imgContainer.addEventListener('mouseleave', function() {
+        const previewImgId = img.dataset.previewId;
+        if (previewImgId) {
+            const previewImg = document.getElementById(previewImgId);
+            previewImg.remove();
+            delete img.dataset.previewId;
+        }
+    });
+}
+
+function addPreview(imgContainers) {
+    for (const imgContainer of imgContainers) {
+        addPreviewForContain(imgContainer);
+    }
+}
+
+function main() {
+
+    // Add CSS for hover effect
+    const css = `
+        .custom-img-preview {
+            position: fixed;
+            z-index: 1000; /* Ensure it's above other elements */
+            pointer-events: none; /* Allows the mouse to pass through the preview image */
+        }
+    `;
+    let styleSheet = document.createElement("style");
+    styleSheet.type = "text/css";
+    styleSheet.innerText = css;
+    document.head.appendChild(styleSheet);
+
+    // MutationObserver to monitor changes in the DOM and add listeners to dynamically added elements
+    const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            mutation.addedNodes.forEach(function(node) {
+                if (node.nodeType === Node.ELEMENT_NODE) {
+                    const imgContainers = node.getElementsByClassName("ant-image");
+                    addPreview(imgContainers);
+                }
+            });
+        });
+    });
+
+    // Start observing mutations in the document
+    observer.observe(document.body, { childList: true, subtree: true });
+}
+
+main();
