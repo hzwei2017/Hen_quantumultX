@@ -2,6 +2,7 @@
 // @name        New script m-team.cc
 // @namespace   Violentmonkey Scripts
 // @match       https://xp.m-team.cc/browse/*
+// @match       https://xp.m-team.cc/browse/*/*
 // @grant       none
 // @version     1.0
 // @author      fls233
