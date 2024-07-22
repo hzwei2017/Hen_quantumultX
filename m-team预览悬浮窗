@@ -2,7 +2,7 @@
 // @name        馒头图片预览
 // @namespace   Violentmonkey Scripts
 // @match       https://*.m-team.cc/browse
-// @match       https://kp.m-team.cc/browse?*
+// @match       https://*.m-team.cc/browse?*
 // @match       https://*.m-team.cc/browse/*
 // @grant       none
 // @version     1.0
