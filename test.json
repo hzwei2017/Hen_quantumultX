@@ -1,0 +1,25 @@
+{
+    "yaml": {
+      "prepend-rules": [
+        "DOMAIN-SUFFIX,api.themoviedb.com,🇭🇰 香港节点",
+        "DOMAIN-KEYWORD,subhd.tv,🚀 节点选择",
+        "DOMAIN-KEYWORD,sehuatang.org,🚀 节点选择",
+        "DOMAIN-SUFFIX,m-team.cc,🇭🇰 香港节点",
+        "DOMAIN-SUFFIX,pttime.org,🇭🇰 香港节点",
+        "DOMAIN-SUFFIX,imghut.com,🇭🇰 香港节点",
+        "DOMAIN-SUFFIX,z4a.net,🇭🇰 香港节点",
+        "DOMAIN-KEYWORD,bdys,DIRECT",
+        "DOMAIN-SUFFIX,steamcontent.com,🚀 节点选择",
+        "DOMAIN-SUFFIX,fanart.tv,DIRECT",
+        "DOMAIN-SUFFIX,zh.moegirl.org.cn,DIRECT",
+        "DOMAIN-SUFFIX,tmdb.org,🚀 节点选择",
+        "DOMAIN-SUFFIX,login.live.com,🚀 节点选择",
+        "DOMAIN-SUFFIX,dmm.co,🇯🇵 日本节点",
+        "DOMAIN-SUFFIX,dmm.co.jp,🇯🇵 日本节点",
+        "DOMAIN-SUFFIX,fc2.com,🇯🇵 日本节点",
+        "DOMAIN-SUFFIX,i.ibb.co,DIRECT",
+        "DOMAIN-SUFFIX,epicgames.com,🚀 节点选择",
+        "DOMAIN-SUFFIX,steamdb.info,🇺🇲 美国节点"
+      ]
+    }
+  }
