@@ -1,0 +1,22 @@
+[rewrite_local]
+# 种子页面跳转
+^https?:\/\/(kp|next|xp|zp|mp|ob)\.m-team\.(cc|io)\/detail\/(\d+)$ url 302 https://h5.m-team.cc/profile/detail/\#\/torrent\/$3
+# 个人主页跳转
+^https?:\/\/(kp|next|xp|zp|mp|ob)\.m-team\.(cc|io)\/profile\/detail\/\d+$ url 302 https://h5.m-team.cc\/\#\/home
+^https?:\/\/(kp|next|xp|zp|mp|ob)\.m-team\.(cc|io)\/index$ url 302 https://h5.m-team.cc\/\#\/home
+# 个人收藏跳转（需要放置在"^https?:\/\/...\/browse(\?.*)$"规则之前）
+^https?:\/\/(kp|next|xp|zp|mp|ob)\.m-team\.(cc|io)\/browse\/(movie|adult)\?onlyFav=1$ url 302 https://h5.m-team.cc\/\#\/torrents\?onlyFav=1&mode=$3
+^https?:\/\/(kp|next|xp|zp|mp|ob)\.m-team\.(cc|io)\/browse\?onlyFav=1$ url 302 https://h5.m-team.cc\/\#\/torrents\?onlyFav=1&mode=normal
+# 综合跳转
+^https?:\/\/(kp|next|xp|zp|mp|ob)\.m-team\.(cc|io)\/browse(\?.*)$ url 302 https://h5.m-team.cc\/\#\/torrents$1
+^https?:\/\/(kp|next|xp|zp|mp|ob)\.m-team\.(cc|io)\/browse\/(movie|tvshow|adult)(\?.*)?$ url 302 https://h5.m-team.cc\/\#\/torrents\?mode=$3$4
+# 菠菜
+^https?:\/\/(kp|next|xp|zp|mp|ob)\.m-team\.(cc|io)\/bet$ url 302 https://h5.m-team.cc\/\#\/bet
+^https?:\/\/(kp|next|xp|zp|mp|ob)\.m-team\.(cc|io)\/bet_old$ url 302 https://h5.m-team.cc\/\#\/bet\/closed
+^https?:\/\/(kp|next|xp|zp|mp|ob)\.m-team\.(cc|io)\/bet_coupon$ url 302 https://h5.m-team.cc\/\#\/bet\/my-bets
+^https?:\/\/(kp|next|xp|zp|mp|ob)\.m-team\.(cc|io)\/bet_info2$ url 302 https://h5.m-team.cc\/\#\/bet\/history
+^https?:\/\/(kp|next|xp|zp|mp|ob)\.m-team\.(cc|io)\/bet_bonustop$ url 302 https://h5.m-team.cc\/\#\/bet\/ranking
+^https?:\/\/(kp|next|xp|zp|mp|ob)\.m-team\.(cc|io)\/bet_info$ url 302 https://h5.m-team.cc\/\#\/bet\/help
+^https?:\/\/(kp|next|xp|zp|mp|ob)\.m-team\.(cc|io)\/bet_info1$ url 302 https://h5.m-team.cc\/\#\/bet\/records
+[mitm]
+hostname = *.m-team.cc, *.m-team.io
