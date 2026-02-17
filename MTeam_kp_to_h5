@@ -8,7 +8,7 @@
 ^https?:\/\/(kp|next|xp|zp|mp|ob)\.m-team\.(cc|io)\/browse\/(movie|adult)\?onlyFav=1$ url 302 https://h5.m-team.cc\/\#\/torrents\?onlyFav=1&mode=$3
 ^https?:\/\/(kp|next|xp|zp|mp|ob)\.m-team\.(cc|io)\/browse\?onlyFav=1$ url 302 https://h5.m-team.cc\/\#\/torrents\?onlyFav=1&mode=normal
 # 综合跳转
-^https?:\/\/(kp|next|xp|zp|mp|ob)\.m-team\.(cc|io)\/browse(\?.*)$ url 302 https://h5.m-team.cc\/\#\/torrents$1
+^https?:\/\/(kp|next|xp|zp|mp|ob)\.m-team\.(cc|io)\/browse(\?.*)$ url 302 https://h5.m-team.cc\/\#\/torrents$3
 ^https?:\/\/(kp|next|xp|zp|mp|ob)\.m-team\.(cc|io)\/browse\/(movie|tvshow|adult)(\?.*)?$ url 302 https://h5.m-team.cc\/\#\/torrents\?mode=$3$4
 # 菠菜
 ^https?:\/\/(kp|next|xp|zp|mp|ob)\.m-team\.(cc|io)\/bet$ url 302 https://h5.m-team.cc\/\#\/bet
