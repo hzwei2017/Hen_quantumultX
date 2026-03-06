@@ -1,6 +1,8 @@
 [rewrite_local]
 # 种子页面跳转
 ^https?:\/\/(kp|next|xp|zp|mp|ob)\.m-team\.(cc|io)\/detail\/(\d+)$ url 302 https://h5.m-team.cc/profile/detail/#/torrent/$3
+# 旧版种子页面跳转
+^https?:\/\/(kp|next|xp|zp|mp|ob)\.m-team\.(io|cc)\/details\.php\?id=(\d+).* url 302 https://h5.m-team.cc/profile/detail/#/torrent/$3
 # 个人主页跳转
 ^https?:\/\/(kp|next|xp|zp|mp|ob)\.m-team\.(cc|io)\/profile\/detail\/\d+$ url 302 https://h5.m-team.cc/#/home
 # ^https?:\/\/(kp|next|xp|zp|mp|ob)\.m-team\.(cc|io)\/index$ url 302 https://h5.m-team.cc/#/home
